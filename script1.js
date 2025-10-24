@@ -202,7 +202,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function initPhone() {
         if (window.intlTelInput && telInput && !telInput.dataset.itiInitialized) {
             window.intlTelInput(telInput, {
-                initialCountry: 'fr',
+                initialCountry: 'auto',
+                geoIpLookup: function(callback) {
+                    fetch('https://ipapi.co/json/')
+                        .then(function(resp){ return resp.ok ? resp.json() : Promise.reject(); })
+                        .then(function(data){ callback((data && data.country_code ? data.country_code : 'FR').toLowerCase()); })
+                        .catch(function(){ callback('fr'); });
+                },
                 utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/utils.js',
                 separateDialCode: true,
                 preferredCountries: ['fr', 'us', 'ma', 'sn', 'cm', 'ca'],
