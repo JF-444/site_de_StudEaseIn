@@ -293,7 +293,7 @@
          <div class="contact-column horaire">
             <h3>PRE-ENREGISTREZ-VOUS</h3>
             <p>Rejoignez-nous dès maintenant et préparons votre <br>insertion !</p>
-             <button id="open-preinscription" class="bouton_form" type="button">Remplir le formulaire dès maintenant</button>
+             <a style="color: rgb(30, 30, 69);" href="https://docs.google.com/forms/d/e/1FAIpQLSdH0Z5ggJl4f2RgYlW5RzpCldp-z5K6umWZr6gFH2rJKoYDZw/viewform?usp=headers" class="bouton_form" target="_blank" rel="noopener noreferrer">Remplir le formulaire dès maintenant</a>
         </div>
         <div class="contact-column horaire">
             <h3>HORAIRE ET DISPONIBILITE</h3>
@@ -334,40 +334,6 @@
                
       </div>
     </footer>
-
-    <!-- Modale de pré-inscription -->
-    <div id="preinscription-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="preinscription-title">
-        <div class="modal-backdrop" data-close-modal></div>
-        <div class="modal-content">
-            <button class="modal-close" id="close-preinscription" aria-label="Fermer">&times;</button>
-            <h2 id="preinscription-title">Pré-inscription</h2>
-            <form id="preinscription-form">
-                <div class="form-row">
-                    <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" required>
-                </div>
-                <div class="form-row">
-                    <label for="prenom">Prénom</label>
-                    <input type="text" id="prenom" name="prenom" required>
-                </div>
-                <div class="form-row">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-row">
-                    <label for="pays">Pays d'origine</label>
-                    <input type="text" id="pays" name="pays" required>
-                </div>
-                <div class="form-row">
-                    <label for="ville">Ville en France (visée)</label>
-                    <input type="text" id="ville" name="ville" required>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="bouton_form">Envoyer</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <script src="script1.js"></script>
 </body>
