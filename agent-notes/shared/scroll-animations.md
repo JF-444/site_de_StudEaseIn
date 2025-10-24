@@ -1,0 +1,1 @@
+We added reveal classes and will implement scroll animations in CSS and JS.
