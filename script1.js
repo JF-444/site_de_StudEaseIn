@@ -114,5 +114,35 @@ document.addEventListener("DOMContentLoaded", () => {
         if (themeToggle) themeToggle.innerHTML = '&#9728;';
     }
 
-    // (Modale retirée — bouton redirige vers Google Form)
+    // ===== MODALE PRÉ-ENREGISTREMENT (Formspree) =====
+    const modal = document.getElementById('preinscription-modal');
+    const openBtn = document.getElementById('open-preinscription');
+    const closeBtn = document.getElementById('close-preinscription');
+    const closeSecondary = document.getElementById('modal-close-secondary');
+    const backdrop = document.querySelector('.modal-backdrop');
+
+    function openModal() {
+        if (!modal) return;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        const firstInput = modal.querySelector('input');
+        if (firstInput) firstInput.focus();
+    }
+
+    function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        openBtn && openBtn.focus();
+    }
+
+    openBtn && openBtn.addEventListener('click', openModal);
+    closeBtn && closeBtn.addEventListener('click', closeModal);
+    closeSecondary && closeSecondary.addEventListener('click', closeModal);
+    backdrop && backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
 });
