@@ -1080,6 +1080,26 @@ footer a:hover {
     cursor: pointer;
 }
 
+#preinscription-form.hidden,
+.success-block.hidden,
+.form-error.hidden {
+    display: none;
+}
+
+.success-block {
+    margin-top: 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--card-border, #ddd);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--card-bg) 85%, #3fbf5c 15%);
+}
+
+.form-error {
+    margin: 8px 0 0;
+    color: #c0392b;
+    font-weight: 600;
+}
+
 #preinscription-form .form-row {
     display: flex;
     flex-direction: column;

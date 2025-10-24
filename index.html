@@ -363,11 +363,19 @@
                     <label for="ville">Ville en France</label>
                     <input type="text" id="ville" name="ville" required>
                 </div>
+                <p id="preinscription-error" class="form-error hidden" role="alert"></p>
                 <div class="form-actions" style="display:flex; gap:8px; justify-content:flex-end;">
                     <button type="button" id="modal-close-secondary" class="bouton_form" style="background:#6c757d;">Fermer</button>
                     <button type="submit" class="bouton_form">Envoyer</button>
                 </div>
             </form>
+            <div id="preinscription-success" class="success-block hidden" role="status" aria-live="polite">
+                <h3 style="margin-top:0;">Merci !</h3>
+                <p>Votre pré-enregistrement a bien été envoyé. Nous vous contacterons dès le lancement.</p>
+                <div class="form-actions" style="display:flex; gap:8px; justify-content:flex-end;">
+                    <button type="button" id="modal-close-success" class="bouton_form">Fermer</button>
+                </div>
+            </div>
         </div>
     </div>
 
