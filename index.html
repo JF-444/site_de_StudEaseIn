@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Intl-Tel-Input CSS for international phone input -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/css/intlTelInput.min.css" />
     
      <script>
         if (localStorage.getItem('theme') === 'dark') {
@@ -65,7 +67,7 @@
 
     <main>
 
-        <section class="prestations container">
+        <section class="prestations container reveal">
             <h2>Des prestations complètes</h2>
             <div class="cards-grid">
                 <!-- Bloc 1 : Aide aux candidatures & Bourses (Nouveau) -->
@@ -98,7 +100,7 @@
                 <p>Ouvrez les portes d'une vie sereine avec StudEaseIn. Nous nous concentrons sur les villes clés comme Paris, Lille, Lyon, Marseille, Bordeaux et bien d'autres.</p>
             </div>
 
-            <div class="procedure-card" id="procedure">
+            <div class="procedure-card reveal" id="procedure">
                 <h2>La solution tout-en-un pour votre vie étudiante</h2>
                 <div class="pillars">
                     <div class="pillar">
@@ -125,7 +127,7 @@
                 <h1>Nos guides par ville</h1>
             </div>
 
-            <div class="container accordion-container">
+            <div class="container accordion-container reveal">
                  <div class="etude-accordion">
                 <div class="accordion-item">
                     <button class="accordion-header">ETUDIER EN ILE DE FRANCE</button>
@@ -273,7 +275,7 @@
 
          <section class="about-us container" id="a-propos">
             <br><h1 style ="text-align:center;">À PROPOS</h1>
-            <div class="about-card">
+            <div class="about-card reveal">
                 <h2>Qui sommes-nous ?</h2>
                 <p>Fondé par d'anciens étudiants internationaux, StudEaseIn est né d'un constat simple : arriver en France est une aventure incroyable, mais aussi un parcours du combattant. Nous sommes cette « famille » sur place, dédiée à rendre votre transition aussi simple et sereine que possible.</p>
 
@@ -289,7 +291,7 @@
            
            <section id="contact" class="main-section">
             <h1 style="text-align: center; margin-bottom: 2rem;">Contactez-nous</h1>
-    <div class="container contact-section-content">
+    <div class="container contact-section-content reveal">
          <div class="contact-column horaire">
             <h3>PRE-ENREGISTREZ-VOUS</h3>
             <p>Rejoignez-nous dès maintenant et préparons votre <br>insertion !</p>
@@ -353,15 +355,55 @@
                 </div>
                 <div class="form-row">
                     <label for="email">Adresse email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required>
+                </div>
+                <div class="form-row">
+                    <label for="telephone">Numéro de téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" required>
                 </div>
                 <div class="form-row">
                     <label for="pays">Pays d'origine</label>
-                    <input type="text" id="pays" name="pays" required>
+                    <select id="pays" name="pays" required></select>
                 </div>
                 <div class="form-row">
-                    <label for="ville">Ville en France</label>
-                    <input type="text" id="ville" name="ville" required>
+                    <label for="ville">Ville d'arrivée en France (visée)</label>
+                    <input list="villes-fr" id="ville" name="ville" required>
+                    <datalist id="villes-fr">
+                        <option value="Aix-en-Provence"></option>
+                        <option value="Amiens"></option>
+                        <option value="Angers"></option>
+                        <option value="Avignon"></option>
+                        <option value="Besançon"></option>
+                        <option value="Bordeaux"></option>
+                        <option value="Brest"></option>
+                        <option value="Caen"></option>
+                        <option value="Clermont-Ferrand"></option>
+                        <option value="Dijon"></option>
+                        <option value="Grenoble"></option>
+                        <option value="La Rochelle"></option>
+                        <option value="Le Mans"></option>
+                        <option value="Lille"></option>
+                        <option value="Limoges"></option>
+                        <option value="Lyon"></option>
+                        <option value="Marseille"></option>
+                        <option value="Metz"></option>
+                        <option value="Montpellier"></option>
+                        <option value="Nancy"></option>
+                        <option value="Nantes"></option>
+                        <option value="Nice"></option>
+                        <option value="Nîmes"></option>
+                        <option value="Orléans"></option>
+                        <option value="Paris"></option>
+                        <option value="Pau"></option>
+                        <option value="Poitiers"></option>
+                        <option value="Reims"></option>
+                        <option value="Rennes"></option>
+                        <option value="Rouen"></option>
+                        <option value="Saint-Étienne"></option>
+                        <option value="Strasbourg"></option>
+                        <option value="Toulouse"></option>
+                        <option value="Tours"></option>
+                    </datalist>
                 </div>
                 <p id="preinscription-error" class="form-error hidden" role="alert"></p>
                 <div class="form-actions" style="display:flex; gap:8px; justify-content:flex-end;">
@@ -380,5 +422,7 @@
     </div>
 
     <script src="script1.js"></script>
+    <!-- Intl-Tel-Input JS for international phone input -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/intlTelInput.min.js"></script>
 </body>
 </html>
