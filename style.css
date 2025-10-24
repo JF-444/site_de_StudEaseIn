@@ -1136,7 +1136,8 @@ footer a:hover {
 }
 
 #preinscription-form input[type="text"],
-#preinscription-form input[type="email"] {
+#preinscription-form input[type="email"],
+#preinscription-form input[type="tel"] {
     padding: 10px 12px;
     border: 1px solid var(--card-border, #ccc);
     border-radius: 8px;
@@ -1154,4 +1155,23 @@ footer a:hover {
     .pillars {
         grid-template-columns: 1fr;
     }
+    .contact-section-content {
+        grid-template-columns: 1fr; /* Mobile: 1 colonne */
+    }
+}
+
+/* Phone input inline prefix */
+.phone-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.phone-prefix {
+    display: inline-block;
+    padding: 10px 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border, #ccc);
+    border-radius: 8px;
+    color: var(--text-color);
+    white-space: nowrap;
 }

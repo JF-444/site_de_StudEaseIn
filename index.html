@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Intl-Tel-Input CSS for international phone input -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/css/intlTelInput.min.css" />
+    
     
      <script>
         if (localStorage.getItem('theme') === 'dark') {
@@ -359,7 +358,10 @@
                 </div>
                 <div class="form-row">
                     <label for="telephone">Numéro de téléphone</label>
-                    <input type="tel" id="telephone" name="telephone" required>
+                    <div class="phone-input">
+                        <span class="phone-prefix" aria-hidden="true">+33 🇫🇷</span>
+                        <input type="tel" id="telephone" name="telephone" placeholder="Ex: 06 12 34 56 78">
+                    </div>
                 </div>
                 <div class="form-row">
                     <label for="pays">Pays d'origine</label>
@@ -421,8 +423,6 @@
         </div>
     </div>
 
-    <!-- Intl-Tel-Input JS for international phone input -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/intlTelInput.min.js"></script>
     <script src="script1.js"></script>
 </body>
 </html>
