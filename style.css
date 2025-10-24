@@ -105,6 +105,8 @@ body {
 /* ...existing code... */
 
 .navbar {
+    position: sticky; /* Header sticky */
+    top: 0;
     background-color: var(--header-bg); /* Utilise la variable */
     color: var(--navbar-text-color); /* Utilise la variable */
     padding: 1rem 0;
@@ -315,7 +317,8 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
 }
 
 .card img {

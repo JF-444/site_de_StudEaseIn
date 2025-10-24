@@ -199,14 +199,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ===== INTL TEL INPUT INIT =====
     const telInput = document.getElementById('telephone');
-    if (window.intlTelInput && telInput) {
-        window.intlTelInput(telInput, {
-            initialCountry: 'fr',
-            utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/utils.js',
-            separateDialCode: true,
-            preferredCountries: ['fr', 'us', 'ma', 'sn', 'cm', 'ca']
-        });
+    function initPhone() {
+        if (window.intlTelInput && telInput && !telInput.dataset.itiInitialized) {
+            window.intlTelInput(telInput, {
+                initialCountry: 'fr',
+                utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/utils.js',
+                separateDialCode: true,
+                preferredCountries: ['fr', 'us', 'ma', 'sn', 'cm', 'ca'],
+                placeholderNumberType: 'MOBILE'
+            });
+            telInput.setAttribute('data-iti-initialized', 'true');
+        }
     }
+    initPhone();
+    // Also ensure on modal open
+    openBtn && openBtn.addEventListener('click', initPhone, { once: false });
 
     // ===== PAYS D'ORIGINE: SELECT AVEC TOUS LES PAYS =====
     const countries = [
