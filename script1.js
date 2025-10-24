@@ -98,22 +98,58 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ===== NAVBAR TEMPORAIRE =====
-    showNavbar();
-    ['mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt => {
-        window.addEventListener(evt, showNavbar, { passive: true });
-    });
+    // ===== NAVBAR STYLE AU SCROLL =====
+    window.addEventListener('scroll', updateHeaderStyle, { passive: true });
 
     // ===== THÈME LUNE / SOLEIL =====
     const themeToggle = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         document.body.classList.add(currentTheme);
-        themeToggle.innerHTML = currentTheme === 'dark-mode' ? '&#9790;' : '&#9728;';
+        if (themeToggle) themeToggle.innerHTML = currentTheme === 'dark-mode' ? '&#9790;' : '&#9728;';
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark-mode');
-        themeToggle.innerHTML = '&#9790;';
+        if (themeToggle) themeToggle.innerHTML = '&#9790;';
     } else {
-        themeToggle.innerHTML = '&#9728;';
+        if (themeToggle) themeToggle.innerHTML = '&#9728;';
     }
+
+    // ===== MODALE PRÉ-INSCRIPTION =====
+    const modal = document.getElementById('preinscription-modal');
+    const openBtn = document.getElementById('open-preinscription');
+    const closeBtn = document.getElementById('close-preinscription');
+    const backdrop = document.querySelector('.modal-backdrop');
+    const form = document.getElementById('preinscription-form');
+
+    function openModal() {
+        if (!modal) return;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        const firstInput = modal.querySelector('input');
+        if (firstInput) firstInput.focus();
+    }
+
+    function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        openBtn && openBtn.focus();
+    }
+
+    openBtn && openBtn.addEventListener('click', openModal);
+    closeBtn && closeBtn.addEventListener('click', closeModal);
+    backdrop && backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    form && form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Simple feedback pour cette démo. On pourrait envoyer à une API plus tard.
+        alert('Merci ! Votre pré-inscription a été envoyée.');
+        form.reset();
+        closeModal();
+    });
 });
